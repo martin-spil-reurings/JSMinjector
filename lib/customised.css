@@ -1,12 +1,17 @@
 #HTMLReporter {
 
-    background: rbga( 255, 255, 255, 0.8 );
+    background: rgba( 255, 255, 255, 0.9 );
     border-radius: 1em;
 
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+
+    padding: 0 0 1em;
+
     z-index: 1500;
 
 }
