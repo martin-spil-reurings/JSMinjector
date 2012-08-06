@@ -26,13 +26,21 @@
       <p>This is an easy setup for unit-testing Javascript based on the popular <a href="http://pivotal.github.com/jasmine/" rel="external">Jasmine</a> <abbr title="Behavior Driven Development">BDD</abbr> suite. The idea being that introducing unit-testing to developers that are unaware of it's use should be as painless and easy as possible. Thus this attempt to inject Jasmine into any page using a single Bookmarklet.</p>
       <p>Of course that in itsself would still be rather useless, so the developer will also need to provide a location where the 'specs' can be found and a single specs.js file is expected to be there to provide an array of specs to run. The injection should take it from there, adding the additional specs to the page and finally firing up Jasmine.</p>
       <p>Some added CSS should help displaying the result on top of your web-page :) So, in summary, what do you need to do to make use of this neat package:</p>
-      <ul>
-        <li>Store this <a href='javascript:(function(hd,h){var s=document.createElement("script");s.src=h+"/lib/injector.js";hd.appendChild(s);})(document.getElementsByTagName("head")[0],"http://martin-spil-reurings.github.com/JSMinjector")'>JSMinjector Bookmarklet</a> in your browser of choice (tested only with Chrome, but 'should' work across the board...)</li>
+      <h3>How to use JSMinjector</h3>
+      <ol>
+        <li>Store this <a href='javascript:(function(hd,h){var s=document.createElement("script");s.src=h+"/lib/injector.js";hd.appendChild(s);})(document.getElementsByTagName("head")[0],"http://martin-spil-reurings.github.com/JSMinjector")' rel="bookmarklet">JSMinjector Bookmarklet</a> in your browser of choice (tested only with Chrome, but 'should' work across the board...)</li>
         <li>Create some test 'specs' and place them in a folder on your to-be-tested application, or anywhere else that you can access from your browser.</li>
-        <li>Open the page on which you want to let lose the unit-tests.</li>
-        <li>Click on the bookmarklet and provide the location of your spec files.</li>
+        <li>Create a specs.js file in with your unit-tests (most be hosted from the same place) containing something like this:
+            <pre>JSMinjector.addSpecs( [
+    "/MyFirst.spec.js",
+    "/MySecond.spec.js"
+] );</pre>
+        </li>
+        <li>Open the page on which you want to let lose the unit-tests and click on the bookmarklet. When the script asks for it, provide the location of your spec files (it'll only ask once).</li>
         <li>Check the results</li>
-      </ul>
+      </ol>
+      <h3>How to reset</h3>
+      <p>So, you made a mistake when running the scriptlet and it's pointing at the wrong specs, or you just want to change to a different set, and so on... Essentially there's a single setting stored in your localstorage, but I'm lazy too, so here's <a href='javascript:(function(h){localStorage.removeItem("JSMInjector.specs.host");})()' rel="bookmarklet">another bookmarklet</a> that resets the localstorage key.</p>
     </div>
 
     <footer>
